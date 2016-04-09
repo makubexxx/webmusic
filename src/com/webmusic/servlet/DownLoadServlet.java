@@ -23,12 +23,9 @@ public class DownLoadServlet extends HttpServlet {
         //得到要下载的文件名
         String fileName = request.getParameter("filename");  //23239283-92489-阿凡达.avi
         fileName = new String(fileName.getBytes("iso8859-1"),"UTF-8");
-        //上传的文件都是保存在/WEB-INF/upload目录下的子目录当中
-        String fileSaveRootPath="E:/workspace/webmusic/WebContent/upload";;
-        //通过文件名找出文件的所在目录
-        String path = findFileSavePathByFileName(fileName,fileSaveRootPath);
+        String path=request.getSession().getServletContext().getRealPath("/")+"upload\\";
         //得到要下载的文件
-        File file = new File(path + "\\" + fileName);
+        File file = new File(path+fileName);
         //如果文件不存在
         if(!file.exists()){
             request.setAttribute("message", "您要下载的资源已被删除！！");
@@ -40,7 +37,7 @@ public class DownLoadServlet extends HttpServlet {
         //设置响应头，控制浏览器下载该文件
         response.setHeader("content-disposition", "attachment;filename=" + URLEncoder.encode(realname, "UTF-8"));
         //读取要下载的文件，保存到文件输入流
-        FileInputStream in = new FileInputStream(path + "\\" + fileName);
+        FileInputStream in = new FileInputStream(path + fileName);
         //创建输出流
         OutputStream out = response.getOutputStream();
         //创建缓冲区

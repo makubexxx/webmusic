@@ -51,21 +51,30 @@ public class Loginservlet extends HttpServlet {
 	 {
 		 HttpSession session =req.getSession();
 		 session.setAttribute("user", user);
-		 List<Song> latesong = new ArrayList<Song>();
-		 List<Mv> latemv =new ArrayList<Mv>();
-		 try {
-			latesong = Songdao.latetysong();
-			latemv  =mvdao.latetyMv();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		 System.out.println("usertype"+user.getUsertype());
+		 //普通用户
+		 if(user.getUsertype()==0)
+		 {
+			 List<Song> latesong = new ArrayList<Song>();
+			 List<Mv> latemv =new ArrayList<Mv>();
+			 try {
+				latesong = Songdao.latetysong();
+				latemv  =mvdao.latetyMv();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 for (int i = 0; i < latesong.size(); i++) {
+				System.out.println("歌手名"+latesong.get(i).getPlayer());
+			}
+			 req.setAttribute("latesonglist", latesong);
+			 req.setAttribute("latemvlist", latemv);
+			 req.getRequestDispatcher("/views/usermain.jsp").forward(req,resp);  
+		 }
+	    //admin
+		 else {
+			resp.sendRedirect("/webmusic/views/admin.jsp");
 		}
-		 for (int i = 0; i < latesong.size(); i++) {
-			System.out.println("歌手名"+latesong.get(i).getPlayer());
-		}
-		 req.setAttribute("latesonglist", latesong);
-		 req.setAttribute("latemvlist", latemv);
-		 req.getRequestDispatcher("/views/usermain.jsp").forward(req,resp);  
 	 }
 	 else {
 		 resp.setCharacterEncoding("UTF-8");

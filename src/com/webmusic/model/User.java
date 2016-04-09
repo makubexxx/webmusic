@@ -13,8 +13,8 @@ public class User {
 	private String username;
 	private String email;
 	private String password;
-	private Date  register_date;
-	
+	private Date  register_date;	
+	private int usertype;
 	
 	
 	public String getUsername() {
@@ -46,6 +46,12 @@ public class User {
 	}
 	public void setRegister_date(Date register_date) {
 		this.register_date = register_date;
+	}
+	public int getUsertype() {
+		return usertype;
+	}
+	public void setUsertype(int usertype) {
+		this.usertype = usertype;
 	}
 
 }

@@ -52,6 +52,7 @@ public class RegisterformServlet extends HttpServlet {
 			Date sqdate= new Date(date.getTime());
 			user.setRegister_date(sqdate);
 			user.setUsername(name);
+			user.setUsertype(0);
 			try {
 				Userdao.addUser(user);
 			} catch (Exception e) {

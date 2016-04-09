@@ -110,6 +110,10 @@
     <p><input type="button" class="am-btn am-btn-default" value="提交" id="addcomment"></p>
   </fieldset>
   </form>
+      <a class="am-btn am-btn-primary" href="">
+  <i class="am-icon-cloud-download"></i>
+  下载
+</a>
                  
                 </div>
                 <div class="col-sm-4">

@@ -4,7 +4,8 @@ $(document).ready(function(){
 	$.getJSON("/webmusic/mvdetail?mvid="+mvid, function(data){
 		$("#other").append(data.other);
 		  // video
-
+		var arr=data.mvsrc.split("/"); 
+		$("#down").attr("href","/webmusic/DownLoadServlet?filename="+arr[3]);
 		  $("#jplayer_1").jPlayer({
 		    ready: function () {
 		      $(this).jPlayer("setMedia", {

@@ -7,6 +7,8 @@ $(document).ready(function(){
 		$("#other").append(data.other);
 		console.log(data.img);
 		$("#img").attr("src",data.img);
+		var arr=data.songsrc.split("/"); 
+		$("#down").attr("href","/webmusic/DownLoadServlet?filename="+arr[3]);
 		
 		
 		var myPlaylist = new jPlayerPlaylist({

@@ -15,7 +15,8 @@
       <servlet-name>registerform</servlet-name>
       <url-pattern>/registerform</url-pattern>
   </servlet-mapping>
-  
+ 
+  <!-- 登录 -->
       <servlet>
       <servlet-name>login</servlet-name>
       <servlet-class>com.webmusic.servlet.Loginservlet</servlet-class>
@@ -25,8 +26,8 @@
       <url-pattern>/login</url-pattern>
   </servlet-mapping>
   
-
-<servlet>
+<!-- 上传 -->
+  <servlet>
     <servlet-name>UploadHandle</servlet-name>
     <servlet-class>com.webmusic.servlet.UploadHandleServlet</servlet-class>
 </servlet>
@@ -37,22 +38,11 @@
 </servlet-mapping>
 
 
+<!-- 下载 -->
 <servlet>
       <servlet-name>DownLoadServlet</servlet-name>
       <servlet-class>com.webmusic.servlet.DownLoadServlet</servlet-class>
 </servlet>
-
-
-<servlet>
-      <servlet-name>ListFileServlet</servlet-name>
-     <servlet-class>me.gacl.web.controller.ListFileServlet</servlet-class>
- </servlet>
-  
- <servlet-mapping>
-     <servlet-name>ListFileServlet</servlet-name>
-    <url-pattern>/servlet/ListFileServlet</url-pattern>
- </servlet-mapping>    
- 
 <servlet-mapping>
       <servlet-name>DownLoadServlet</servlet-name>
       <url-pattern>/DownLoadServlet</url-pattern>
